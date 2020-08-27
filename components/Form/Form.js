@@ -1,10 +1,10 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Button } from 'react-native';
 import Slider from '@react-native-community/slider';
 
 
 
-const Form = ({ routeLength, fuelUsage, fuelPrice, handleRouteSlider, handleFuelUsageSlider, handleFuelPriceSlider }) => (
+const Form = ({ routeLength, fuelUsage, fuelPrice, handleRouteSlider, handleFuelUsageSlider, handleFuelPriceSlider, handleBtn }) => (
     <View View style={styles.container} >
         <View style={styles.innerContainer}>
             <View style={styles.inputContainer}>
@@ -57,6 +57,11 @@ const Form = ({ routeLength, fuelUsage, fuelPrice, handleRouteSlider, handleFuel
                     value={fuelPrice}
                     onValueChange={handleFuelPriceSlider}
                 />
+                <Button
+                    style={styles.btn}
+                    title={'Click'}
+                    onPress={handleBtn}
+                />
             </View>
         </View>
     </View >
@@ -92,6 +97,9 @@ const styles = StyleSheet.create({
         color: '#fff',
         fontWeight: 'bold',
         fontSize: 25
+    },
+    btn: {
+        paddingVertical: 200
     }
 });
 

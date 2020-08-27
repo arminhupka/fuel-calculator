@@ -1,6 +1,6 @@
 // import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, StatusBar } from 'react-native';
+import { StyleSheet, Text, View, StatusBar, Button } from 'react-native';
 
 import Header from './components/Header/Header'
 import Form from './components/Form/Form'
@@ -33,7 +33,11 @@ class App extends React.Component {
   }
 
   showRoutePrice = () => {
-
+    const needFuel = Math.round(this.state.routeLength * this.state.fuelUsage) / 100;
+    const tripPrice = Math.round(needFuel * this.state.fuelPrice * 100) / 100;
+    this.setState({
+      routePrice: tripPrice
+    })
   }
 
   render() {
@@ -52,6 +56,7 @@ class App extends React.Component {
           handleRouteSlider={this.handleRouteSlider}
           handleFuelUsageSlider={this.handleFuelUsageSlider}
           handleFuelPriceSlider={this.handleFuelPriceSlider}
+          handleBtn={this.showRoutePrice}
         />
       </View>
     );
