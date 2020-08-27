@@ -23,12 +23,12 @@ class App extends React.Component {
 
   handleFuelUsageSlider = value => {
     this.setState({
-      fuelUsage: value
+      fuelUsage: value.toFixed(1)
     })
   }
   handleFuelPriceSlider = value => {
     this.setState({
-      fuelPrice: value
+      fuelPrice: value.toFixed(2)
     })
   }
 

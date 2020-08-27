@@ -1,11 +1,12 @@
 import React from 'react';
-import { View, Text, StyleSheet, Button } from 'react-native';
+import { View, Text, StyleSheet, Button, TouchableHighlight, TouchableNativeFeedback } from 'react-native';
 import Slider from '@react-native-community/slider';
 
 
 
 const Form = ({ routeLength, fuelUsage, fuelPrice, handleRouteSlider, handleFuelUsageSlider, handleFuelPriceSlider, handleBtn }) => (
-    <View View style={styles.container} >
+
+    <View style={styles.container} >
         <View style={styles.innerContainer}>
             <View style={styles.inputContainer}>
                 <View style={styles.texts}>
@@ -48,8 +49,8 @@ const Form = ({ routeLength, fuelUsage, fuelPrice, handleRouteSlider, handleFuel
                 </View>
                 <Slider
                     style={{ width: '100%', height: 60 }}
-                    minimumValue={3}
-                    maximumValue={7}
+                    minimumValue={0}
+                    maximumValue={10}
                     step={0.01}
                     minimumTrackTintColor="#318BA6"
                     maximumTrackTintColor="#333"
@@ -57,11 +58,16 @@ const Form = ({ routeLength, fuelUsage, fuelPrice, handleRouteSlider, handleFuel
                     value={fuelPrice}
                     onValueChange={handleFuelPriceSlider}
                 />
-                <Button
-                    style={styles.btn}
-                    title={'Click'}
+                <TouchableNativeFeedback
+                    style={styles.button}
                     onPress={handleBtn}
-                />
+                >
+                    <Text
+                        style={styles.btnText}
+                    >
+                        Sprawdź Koszt
+                    </Text>
+                </TouchableNativeFeedback>
             </View>
         </View>
     </View >
@@ -99,7 +105,15 @@ const styles = StyleSheet.create({
         fontSize: 25
     },
     btn: {
-        paddingVertical: 200
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#fff',
+    },
+    btnText: {
+        width: 200,
+        color: '#fff',
+        backgroundColor: 'red',
     }
 });
 
