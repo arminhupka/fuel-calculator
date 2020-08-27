@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, View, StyleSheet, SafeAreaView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
-const Header = ({ text }) => (
+const Header = ({ routePrice }) => (
     <View style={styles.wrapper}>
         <LinearGradient
             // Background Linear Gradient
@@ -17,7 +17,7 @@ const Header = ({ text }) => (
         />
         <SafeAreaView style={styles.innerWrapper}>
             <View style={styles.content}>
-                <Text style={styles.sumNum}>12325 zł</Text>
+                <Text style={styles.sumNum}>{routePrice} zł</Text>
                 <Text style={styles.desc}>przyblizony koszt trasy</Text>
             </View>
         </SafeAreaView>

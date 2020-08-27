@@ -3,53 +3,63 @@ import { View, Text, StyleSheet } from 'react-native';
 import Slider from '@react-native-community/slider';
 
 
-const Form = () => (
-    <View style={styles.container}>
+
+const Form = ({ routeLength, fuelUsage, fuelPrice, handleRouteSlider, handleFuelUsageSlider, handleFuelPriceSlider }) => (
+    <View View style={styles.container} >
         <View style={styles.innerContainer}>
             <View style={styles.inputContainer}>
                 <View style={styles.texts}>
                     <Text style={styles.titleText}>Długość planowanej trasy</Text>
-                    <Text style={styles.numText}>754 km</Text>
+                    <Text style={styles.numText}>{routeLength} km</Text>
                 </View>
                 <Slider
                     style={{ width: '100%', height: 60 }}
-                    minimumValue={0}
-                    maximumValue={1}
+                    minimumValue={1}
+                    maximumValue={1000}
+                    step={1}
                     minimumTrackTintColor="#318BA6"
                     maximumTrackTintColor="#333"
                     thumbTintColor='#3C5CB6'
+                    value={routeLength}
+                    onValueChange={handleRouteSlider}
                 />
             </View>
             <View style={styles.inputContainer}>
                 <View style={styles.texts}>
                     <Text style={styles.titleText}>Spalanie na 100 km</Text>
-                    <Text style={styles.numText}>7.7 / 100 km</Text>
+                    <Text style={styles.numText}>{fuelUsage} / 100 km</Text>
                 </View>
                 <Slider
                     style={{ width: '100%', height: 60 }}
-                    minimumValue={0}
-                    maximumValue={1}
+                    minimumValue={1}
+                    maximumValue={50}
+                    step={0.1}
                     minimumTrackTintColor="#318BA6"
                     maximumTrackTintColor="#333"
                     thumbTintColor='#3C5CB6'
+                    value={fuelUsage}
+                    onValueChange={handleFuelUsageSlider}
                 />
             </View>
             <View style={styles.inputContainer}>
                 <View style={styles.texts}>
                     <Text style={styles.titleText}>Cena paliwa</Text>
-                    <Text style={styles.numText}>4.22 PLN</Text>
+                    <Text style={styles.numText}>{fuelPrice} zł</Text>
                 </View>
                 <Slider
                     style={{ width: '100%', height: 60 }}
-                    minimumValue={0}
-                    maximumValue={1}
+                    minimumValue={3}
+                    maximumValue={7}
+                    step={0.01}
                     minimumTrackTintColor="#318BA6"
                     maximumTrackTintColor="#333"
                     thumbTintColor='#3C5CB6'
+                    value={fuelPrice}
+                    onValueChange={handleFuelPriceSlider}
                 />
             </View>
         </View>
-    </View>
+    </View >
 
 );
 

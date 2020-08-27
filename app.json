@@ -17,7 +17,7 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "bundleIdentifier": "arminhupka.fuelCalc"
     },
     "web": {
       "favicon": "./assets/favicon.png"
