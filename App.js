@@ -12,7 +12,8 @@ class App extends React.Component {
     routeLength: 234,
     fuelUsage: 6.5,
     fuelPrice: 4.25,
-    routePrice: 0.00
+    routePrice: 64.64,
+    needFuel: 0,
   }
 
   handleRouteSlider = value => {
@@ -36,7 +37,8 @@ class App extends React.Component {
     const needFuel = Math.round(this.state.routeLength * this.state.fuelUsage) / 100;
     const tripPrice = Math.round(needFuel * this.state.fuelPrice * 100) / 100;
     this.setState({
-      routePrice: tripPrice
+      routePrice: tripPrice,
+      needFuel: needFuel
     })
   }
 
@@ -48,6 +50,7 @@ class App extends React.Component {
         />
         <Header
           routePrice={this.state.routePrice}
+          needFuel={this.state.needFuel}
         />
         <Form
           routeLength={this.state.routeLength}

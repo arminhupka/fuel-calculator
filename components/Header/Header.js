@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, View, StyleSheet, SafeAreaView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
-const Header = ({ routePrice }) => (
+const Header = ({ routePrice, needFuel }) => (
     <View style={styles.wrapper}>
         <LinearGradient
             // Background Linear Gradient
@@ -19,6 +19,7 @@ const Header = ({ routePrice }) => (
             <View style={styles.content}>
                 <Text style={styles.sumNum}>{routePrice} zł</Text>
                 <Text style={styles.desc}>przyblizony koszt trasy</Text>
+                <Text style={styles.desc2}>Potrzeba {needFuel} litrów paliwa</Text>
             </View>
         </SafeAreaView>
     </View >
@@ -63,6 +64,12 @@ const styles = StyleSheet.create({
     desc: {
         color: '#919097',
         textTransform: 'uppercase'
+    },
+    desc2: {
+        color: '#919097',
+        textTransform: 'uppercase',
+        top: 10,
+        fontWeight: 'bold'
     }
 
 });

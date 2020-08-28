@@ -1,6 +1,6 @@
-import React from 'react';
-import { View, Text, StyleSheet, Button, TouchableHighlight, TouchableNativeFeedback } from 'react-native';
 import Slider from '@react-native-community/slider';
+import React from 'react';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
 
 
@@ -58,17 +58,13 @@ const Form = ({ routeLength, fuelUsage, fuelPrice, handleRouteSlider, handleFuel
                     value={fuelPrice}
                     onValueChange={handleFuelPriceSlider}
                 />
-                <TouchableNativeFeedback
-                    style={styles.button}
-                    onPress={handleBtn}
-                >
-                    <Text
-                        style={styles.btnText}
-                    >
-                        Sprawdź Koszt
-                    </Text>
-                </TouchableNativeFeedback>
             </View>
+            <View style={styles.button}>
+                <TouchableOpacity onPress={handleBtn} style={styles.btn}>
+                    <Text style={styles.text}>OBLICZ KOSZT PODRÓŻY</Text>
+                </TouchableOpacity>
+            </View>
+
         </View>
     </View >
 
@@ -84,7 +80,9 @@ const styles = StyleSheet.create({
 
     innerContainer: {
         paddingHorizontal: 30,
-        paddingVertical: 30
+        paddingVertical: 30,
+        flex: 1,
+        position: 'relative'
     },
 
     texts: {
@@ -105,16 +103,20 @@ const styles = StyleSheet.create({
         fontSize: 25
     },
     btn: {
-        flex: 1,
-        justifyContent: 'center',
+        flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: '#fff',
+        justifyContent: 'center',
+        top: 20,
+        backgroundColor: '#3C5CB6',
+        borderRadius: 4
     },
-    btnText: {
-        width: 200,
+    text: {
         color: '#fff',
-        backgroundColor: 'red',
-    }
+        fontWeight: 'bold',
+        fontSize: 20,
+        paddingHorizontal: 10,
+        paddingVertical: 10
+    },
 });
 
 
