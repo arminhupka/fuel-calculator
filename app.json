@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "rn-fuel-calc",
-    "slug": "rn-fuel-calc",
+    "name": "Kalkulator Podróży",
+    "slug": "kalkulator-podrozy",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -9,6 +9,10 @@
       "image": "./assets/splash.png",
       "resizeMode": "cover",
       "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "bundleIdentifier": "com.arminhupka.kalkulatorpodrozy",
+      "buildNumber": "1.0.0"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
